@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Message From My Heart | I'm Truly Sorry</title>
+  <meta name="description" content="A sincere, heartfelt apology and a message from the bottom of my heart." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-midnight">
+  <!-- Interactive Heart & Star Particle Background -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Top Floating Control Bar -->
+  <header class="top-nav">
+    <div class="brand">
+      <span class="heart-pulse">❤️</span>
+      <span class="brand-text">From My Heart</span>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggleBtn" class="nav-btn" title="Change Theme" aria-label="Change Theme">
+        <span class="btn-icon">🎨</span>
+        <span class="btn-label">Theme</span>
+      </button>
+      <button id="musicToggleBtn" class="nav-btn music-btn" title="Toggle Romantic Piano Music" aria-label="Toggle Romantic Music">
+        <span class="music-note-icon">🎵</span>
+        <span id="musicStatusText" class="btn-label">Music: Off</span>
+      </button>
+      <button id="customizeBtn" class="nav-btn highlight-btn" title="Personalize this page" aria-label="Personalize">
+        <span class="btn-icon">✨</span>
+        <span class="btn-label">Personalize</span>
+      </button>
+      <button id="downloadCardBtn" class="nav-btn card-btn" title="Save Apology Card as Image" aria-label="Download Card">
+        <span class="btn-icon">💌</span>
+        <span class="btn-label">Save Card</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+
+    <!-- Hero Section with Sealed Envelope -->
+    <section class="hero-section" id="hero">
+      <div class="badge-pill">
+        <span class="badge-dot"></span> A heartfelt message for <span class="recipient-name-preview">Her</span>
+      </div>
+      <h1 class="hero-title">I'm Truly Sorry</h1>
+      <p class="hero-subtitle">
+        "I made a mistake. I can't change the past, but I can learn from it, and I never want our story to end."
+      </p>
+
+      <!-- Interactive 3D Envelope -->
+      <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope-hint" id="envelopeHint">
+          <span>👆 Click the seal to open my letter</span>
+        </div>
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-letter" id="envelopeLetter">
+            <div class="letter-mini-preview">
+              <span class="mini-heart">❤️</span>
+              <p class="mini-text">To someone who means everything to me...</p>
+            </div>
+          </div>
+          <div class="envelope-pocket"></div>
+          <div class="envelope-flap" id="envelopeFlap">
+            <div class="wax-seal" id="waxSeal" role="button" tabindex="0" aria-label="Open letter">
+              <span class="seal-icon">❤️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apology Letter Section (Appears after envelope opened or smoothly scrolled) -->
+    <section class="letter-section" id="letterSection">
+      <div class="glass-card letter-card">
+        <div class="letter-header">
+          <span class="letter-date" id="letterDate">Today</span>
+          <div class="letter-stamp">❤️</div>
+        </div>
+        <div class="letter-salutation">
+          Dearest <span class="recipient-name" id="displayRecipient">Her Name</span>,
+        </div>
+        <div class="letter-body" id="displayLetterBody">
+          <p>
+            You might be upset or disappointed with me right now, and I completely understand why. What happened was my mistake, and I take full responsibility for it.
+          </p>
+          <p>
+            I am not asking you to forget what happened or to sweep it under the rug. I only ask for a genuine chance to listen, learn, and make things right between us.
+          </p>
+          <p>
+            You matter to me far too much for me to ever take you for granted. I miss your smile, our conversations, and the warmth you bring into my life every single day.
+          </p>
+        </div>
+        <div class="letter-closing">
+          <p class="closing-phrase">With all my love and sincere regret,</p>
+          <p class="sender-signature" id="displaySender">Yours Truly</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reasons Why You Matter To Me (Idea 4) -->
+    <section class="reasons-section" id="reasonsSection">
+      <div class="section-header">
+        <span class="section-tag">Idea 4</span>
+        <h2 class="section-title">Reasons Why You Matter To Me</h2>
+        <p class="section-desc">Because losing you is something I never want to face</p>
+      </div>
+
+      <div class="reasons-grid" id="reasonsGrid">
+        <div class="reason-card glass-card">
+          <div class="reason-icon-wrapper">
+            <span class="reason-icon">✨</span>
+          </div>
+          <h3 class="reason-title">Your Smile Brightens My Day</h3>
+          <p class="reason-text">No matter how chaotic or exhausting life gets, one glance at your genuine smile immediately gives me peace.</p>
+        </div>
+
+        <div class="reason-card glass-card">
+          <div class="reason-icon-wrapper">
+            <span class="reason-icon">🤝</span>
+          </div>
+          <h3 class="reason-title">You Support Me In My Struggles</h3>
+          <p class="reason-text">You've stood by me when things were difficult and believed in me even when I doubted myself.</p>
+        </div>
+
+        <div class="reason-card glass-card">
+          <div class="reason-icon-wrapper">
+            <span class="reason-icon">🌸</span>
+          </div>
+          <h3 class="reason-title">You Turn Ordinary Moments Special</h3>
+          <p class="reason-text">A simple walk, sharing food, or quiet silences together feel magical just because you are right beside me.</p>
+        </div>
+
+        <div class="reason-card glass-card">
+          <div class="reason-icon-wrapper">
+            <span class="reason-icon">💖</span>
+          </div>
+          <h3 class="reason-title">I Don't Want To Lose You</h3>
+          <p class="reason-text">I'm deeply sorry for hurting someone so precious to me. You are irreplaceable in my life.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Memories Timeline & Photo Gallery (Idea 2) -->
+    <section class="memories-section" id="memoriesSection">
+      <div class="section-header">
+        <span class="section-tag">Idea 2</span>
+        <h2 class="section-title">Our Precious Memories</h2>
+        <p class="section-desc">"I don't want our story to end because of my mistake."</p>
+      </div>
+
+      <div class="polaroid-gallery" id="polaroidGallery">
+        <div class="polaroid-card">
+          <div class="polaroid-img-box">
+            <img src="assets/memory1.svg" alt="Sweet Memory" class="memory-img" id="memImg1" />
+            <div class="photo-overlay">✨ Our Laughs</div>
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-quote">"The moments we couldn't stop laughing..."</p>
+            <span class="caption-sub">Treasured memory</span>
+          </div>
+        </div>
+
+        <div class="polaroid-card tilt-right">
+          <div class="polaroid-img-box">
+            <img src="assets/memory2.svg" alt="Special Date" class="memory-img" id="memImg2" />
+            <div class="photo-overlay">☕ Quiet Moments</div>
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-quote">"Every simple talk that made my day lighter."</p>
+            <span class="caption-sub">Unforgettable</span>
+          </div>
+        </div>
+
+        <div class="polaroid-card tilt-left">
+          <div class="polaroid-img-box">
+            <img src="assets/memory3.svg" alt="Unforgettable Times" class="memory-img" id="memImg3" />
+            <div class="photo-overlay">🌟 Forever Hopeful</div>
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-quote">"I hope we have a thousand more memories ahead."</p>
+            <span class="caption-sub">To many more</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Big Question: Interactive Forgiveness Moment (Idea 5) -->
+    <section class="question-section" id="questionSection">
+      <div class="glass-card question-card">
+        <div class="question-icon">🥺</div>
+        <h2 class="question-title">Can You Forgive Me?</h2>
+        <p class="question-subtext">
+          I promise to listen with an open heart and do whatever it takes to earn your trust back.
+        </p>
+
+        <div class="button-arena" id="buttonArena">
+          <button id="yesBtn" class="btn-primary-glow">
+            <span>Yes, I Forgive You ❤️</span>
+          </button>
+          <button id="noBtn" class="btn-playful-dodge">
+            <span id="noBtnText">No / Not yet</span>
+          </button>
+        </div>
+        <p class="dodge-hint" id="dodgeHint">There is no rush... take your time. But I really hope you give me a chance 🥺</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Celebration Modal (Appears when YES is clicked) -->
+  <div class="modal-backdrop" id="celebrationModal">
+    <div class="glass-card celebration-card">
+      <div class="celebration-burst-icon">🎉❤️✨</div>
+      <h2 class="celebration-title">Thank You For Giving Me A Chance! ❤️</h2>
+      <p class="celebration-message">
+        Your forgiveness means the entire world to me. I promise not to let you down and to always cherish and respect you.
+      </p>
+      <div class="celebration-callout">
+        "Can we talk now? I'd love to hear your voice."
+      </div>
+      <div class="celebration-actions">
+        <button id="celebrationCloseBtn" class="btn-primary-glow">Close & Read Again</button>
+        <button id="celebrationShareBtn" class="nav-btn card-btn">💌 Save Memory Card</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personalization Drawer / Modal -->
+  <div class="modal-backdrop" id="customizeModal">
+    <div class="glass-card custom-drawer">
+      <div class="drawer-header">
+        <h3>✨ Personalize Your Apology Page</h3>
+        <button id="closeCustomizeBtn" class="close-btn" aria-label="Close">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <div class="form-group">
+          <label for="inputRecipient">Her Name / Nickname:</label>
+          <input type="text" id="inputRecipient" placeholder="e.g. Maya, My Love, Sweetheart" value="Her Name" />
+        </div>
+        <div class="form-group">
+          <label for="inputSender">Your Name:</label>
+          <input type="text" id="inputSender" placeholder="e.g. Alex" value="Yours Truly" />
+        </div>
+        <div class="form-group">
+          <label for="inputLetter">Custom Letter Message:</label>
+          <textarea id="inputLetter" rows="5" placeholder="Write your heartfelt message here..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Upload Custom Photos (Polaroids):</label>
+          <div class="upload-row">
+            <label class="upload-btn">
+              📷 Photo 1
+              <input type="file" id="filePhoto1" accept="image/*" style="display:none;" />
+            </label>
+            <label class="upload-btn">
+              📷 Photo 2
+              <input type="file" id="filePhoto2" accept="image/*" style="display:none;" />
+            </label>
+            <label class="upload-btn">
+              📷 Photo 3
+              <input type="file" id="filePhoto3" accept="image/*" style="display:none;" />
+            </label>
+          </div>
+          <small class="helper-text">Photos stay in your browser and are not sent anywhere.</small>
+        </div>
+      </div>
+      <div class="drawer-footer">
+        <button id="saveCustomizeBtn" class="btn-primary-glow">Apply & Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Printable/Exportable Canvas for the Card (Idea 1) -->
+  <canvas id="exportCanvas" width="1080" height="1350" style="display:none;"></canvas>
+
+  <footer class="footer">
+    <p>Crafted with genuine love, honesty, and deep remorse ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const dodgeHint = document.getElementById('dodgeHint');
   const celebrationModal = document.getElementById('celebrationModal');
   const celebrationCloseBtn = document.getElementById('celebrationCloseBtn');
-  const celebrationShareBtn = document.getElementById('celebrationShareBtn');
   const exportCanvas = document.getElementById('exportCanvas');
 
   // Input & Display Elements
@@ -399,8 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function applyCustomData() {
-    const recipient = inputRecipient.value.trim() || 'Her Name';
-    const sender = inputSender.value.trim() || 'Yours Truly';
+    const recipient = inputRecipient.value.trim() || 'Sachindi';
+    const sender = inputSender.value.trim() || 'Achintha';
     const customText = inputLetter.value.trim();
 
     displayRecipient.textContent = recipient;
@@ -503,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     exportCtx.fillText('❤️', w / 2, 180);
 
     // 4. Recipient Title
-    const recipient = displayRecipient.textContent || 'Dearest';
+    const recipient = displayRecipient.textContent || 'Sachindi';
     exportCtx.fillStyle = '#f6cf7d';
     exportCtx.font = 'bold 36px Outfit, sans-serif';
     exportCtx.fillText(`FOR ${recipient.toUpperCase()}`, w / 2, 260);
@@ -525,11 +524,11 @@ document.addEventListener('DOMContentLoaded', () => {
     exportCtx.fillStyle = '#e4e7f2';
     exportCtx.font = '34px "Outfit", sans-serif';
     const lines = [
-      '"I made a mistake.',
-      'I cannot change the past, but I can learn from it.',
-      'You mean more to me than words could ever describe.',
-      'I don\'t want our story to end because of my mistake.',
-      'Can we please talk?"'
+      '"I know I made a mistake,',
+      'and I am truly sorry for what I did.',
+      'I deeply regret causing you pain.',
+      'I have learned from this mistake.',
+      'Please forgive me."'
     ];
 
     let yOffset = 520;
@@ -542,14 +541,14 @@ document.addEventListener('DOMContentLoaded', () => {
     yOffset += 40;
     exportCtx.fillStyle = '#ff8fa9';
     exportCtx.font = '26px "Outfit", sans-serif';
-    exportCtx.fillText('✨ Your smile brightens my life', w / 2, yOffset);
+    exportCtx.fillText('✨ I miss your smile and kindness', w / 2, yOffset);
     yOffset += 45;
-    exportCtx.fillText('✨ I cherish every moment we share', w / 2, yOffset);
+    exportCtx.fillText('✨ I care about you deeply', w / 2, yOffset);
     yOffset += 45;
-    exportCtx.fillText('✨ I am deeply sorry for hurting you', w / 2, yOffset);
+    exportCtx.fillText('✨ I will work hard to become better', w / 2, yOffset);
 
     // 9. Bottom Sign-off
-    const sender = displaySender.textContent || 'Yours Truly';
+    const sender = displaySender.textContent || 'your boyfriend Achintha';
     exportCtx.fillStyle = '#f6cf7d';
     exportCtx.font = 'italic 44px "Playfair Display", serif';
     exportCtx.fillText(`With love, ${sender}`, w / 2, h - 160);
@@ -567,8 +566,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   downloadCardBtn.addEventListener('click', exportApologyCard);
-  celebrationShareBtn.addEventListener('click', () => {
-    celebrationModal.classList.remove('active');
-    exportApologyCard();
-  });
 });
